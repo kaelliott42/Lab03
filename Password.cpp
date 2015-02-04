@@ -4,7 +4,24 @@ using CSC2110::ListArrayIterator;
 #include <iostream>
 using namespace std;
 
+Password::Password()
+{
+	int max_words = 20;
+	
+	viable_words = new String*[max_words];
+	
+	for (int i = 0; i < max_words; i++)
+	{
+		viable_words[i] = 0
+	}
+	
+	num_words = 0;
+}
 
+Password::~Password()
+{
+	delete[] viable_words;
+}
 
 
 
