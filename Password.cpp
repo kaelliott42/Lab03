@@ -19,7 +19,51 @@ Password::~Password()
 
 void Password::addWord(String* word)
 {
+	all_words->add(word);
+}
+
+void Password::guess(int try_password, int num_matches);
+{
+	ListArrayIterator<String>* iter = all_words->iterator();
+	string* word_guess = all_words->get(try_password);
 	
+	while (iter->hasNext())
+	{
+		string* curr_word = iter->next();
+		
+		int matches = 0;
+		matches = getNumMatches(curr_word, word_guess);
+		
+		if (matches == num_matches)
+		{
+			viable_words->add(curr_word);
+		}
+	}
+}
+
+int Password::getNumMatches(String* curr_word, String* word_guess)
+{
+	
+}
+
+int Password::getNumberOfPasswordsLeft()
+{
+	return viable_words->size();
+}
+
+void Password::displayViableWords()
+{
+	ListArrayIterator<String>* iter = viable_words->iterator();
+	
+	while (iter->hasNext())
+	{		
+		cout << iter->next() << endl;
+	}
+}
+
+Password::String* getOriginalWord(int index)
+{
+	return all_words->get(index);
 }
 
 
