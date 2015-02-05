@@ -7,7 +7,8 @@ using namespace CSC2110;
 
 Password::Password()
 {
-	
+	viable_words = new ListArray<String>*();
+	all_words = new ListArray<String>*();
 }
 
 Password::~Password()
