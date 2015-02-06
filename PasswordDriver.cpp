@@ -1,4 +1,21 @@
 #include "Password.h"
+#include "CD.h"
+#include "Double.h"
+#include "HighPerformanceCounter.h"
+#include "Integer.h"
+#include "Keyboard.h"
+#include "ListArray.h"
+#include "ListArrayIterator.h"
+#include "Matrix.h"
+#include "Permutation.h"
+#include "Poly.h"
+#include "Random.h"
+#include "ReadFile.h"
+#include "Song.h"
+#include "Text.h"
+#include "Tokens.h"
+#include "WriteFile.h"
+
 //fill in includes, don't forget namespaces
 
 #include <iostream>

@@ -1,9 +1,26 @@
 #if !defined PASSWORD_H
 #define PASSWORD_H
 
+#include "CD.h"
+#include "Double.h"
+#include "HighPerformanceCounter.h"
+#include "Integer.h"
+#include "Keyboard.h"
+#include "ListArray.h"
+#include "ListArrayIterator.h"
+#include "Matrix.h"
+#include "Permutation.h"
+#include "Poly.h"
+#include "Random.h"
+#include "ReadFile.h"
+#include "Song.h"
+#include "Text.h"
+#include "Tokens.h"
+#include "WriteFile.h"
 //complete the includes
 
 namespace CSC2110
+{
 class Password
 {
    private:
@@ -25,5 +42,5 @@ class Password
 	  String* getOriginalWord(int index); //get a word from the original list of all passwords, 1-based
 
 };
-
+}
 #endif

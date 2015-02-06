@@ -1,4 +1,5 @@
 #include "Password.h"
+
 using CSC2110::ListArrayIterator;
 
 #include <iostream>
@@ -7,8 +8,8 @@ using namespace CSC2110;
 
 Password::Password()
 {
-	viable_words = new ListArray<String>*();
-	all_words = new ListArray<String>*();
+	viable_words = new ListArray<String>();
+	all_words = new ListArray<String>();
 }
 
 Password::~Password()
@@ -22,7 +23,7 @@ void Password::addWord(String* word)
 	all_words->add(word);
 }
 
-void Password::guess(int try_password, int num_matches);
+void Password::guess(int try_password, int num_matches)
 {
 	ListArrayIterator<String>* iter = all_words->iterator();
 	string* word_guess = all_words->get(try_password);
