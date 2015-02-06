@@ -42,22 +42,29 @@ void Password::guess(int try_password, int num_matches)
 {
 	ListArrayIterator<String>* iter = all_words->iterator();
 	String* word_guess = all_words->get(try_password);
+	delete viable_words;
+	ListArray<String>* temp_words;
+	temp_words = new ListArray<String>();	
 	
 	while (iter->hasNext())
 	{
 		String* curr_word = iter->next();
 		
 		int matches = 0;
-		matches = getNumMatches(curr_word, word_guess);
+		matches = getNumMatches(curr_word, word_guess);		
+		
 		curr_word->displayString(); cout << endl;
 		word_guess->displayString(); cout << endl;
-		cout << matches << endl << endl;
+		cout << matches << endl;
+		cout << num_matches << endl << endl;
 		
 		if (matches == num_matches)
 		{
-			viable_words->add(curr_word);
+			temp_words->add(curr_word);
 		}
 	}
+	
+	viable_words = temp_words;
 }
 
 int Password::getNumMatches(String* curr_word, String* word_guess)
@@ -86,6 +93,7 @@ void Password::displayViableWords()
 {
 	ListArrayIterator<String>* iter = viable_words->iterator();
 	
+	cout << endl << "Viable Words" << endl << endl;
 	while (iter->hasNext())
 	{		
 		iter->next()->displayString();
