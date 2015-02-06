@@ -43,6 +43,22 @@ void Password::guess(int try_password, int num_matches);
 
 int Password::getNumMatches(String* curr_word, String* word_guess)
 {
+	int curr_word_length = curr_word->length();
+	int word_guess_length = word_guess->length();
+	int matches = 0;
+	
+	if (curr_word_length == word_guess_length)
+	{
+		for (int i = 0; i < curr_word_length; i++)
+		{
+			if (curr_word->charAt(i) == word_guess->charAt(i))
+			{
+				matches++;
+			}
+		}
+		
+		return matches;
+	}
 	
 }
 
@@ -65,15 +81,6 @@ Password::String* getOriginalWord(int index)
 {
 	return all_words->get(index);
 }
-
-
-
-
-
-
-
-
-
 
 int Password::bestGuess()
 {
