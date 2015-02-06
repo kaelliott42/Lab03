@@ -15,15 +15,12 @@ Password::Password()
 
 Password::~Password()
 {
-	delete[] viable_words;
-	delete[] all_words;
+	delete viable_words;
+	delete all_words;
 }
 
 void Password::addWord(String* word)
-{
-	word->displayString();
-	cout << endl;
-	
+{	
 	if (all_words->size() ==0)
 	{
 		len = word->length();
@@ -40,23 +37,19 @@ void Password::addWord(String* word)
 
 void Password::guess(int try_password, int num_matches)
 {
-	ListArrayIterator<String>* iter = all_words->iterator();
+	ListArrayIterator<String>* iter = viable_words->iterator();
 	String* word_guess = all_words->get(try_password);
-	delete viable_words;
+	
+	
 	ListArray<String>* temp_words;
 	temp_words = new ListArray<String>();	
 	
 	while (iter->hasNext())
 	{
-		String* curr_word = iter->next();
+		String* curr_word = new String(iter->next()->getText());
 		
 		int matches = 0;
 		matches = getNumMatches(curr_word, word_guess);		
-		
-		curr_word->displayString(); cout << endl;
-		word_guess->displayString(); cout << endl;
-		cout << matches << endl;
-		cout << num_matches << endl << endl;
 		
 		if (matches == num_matches)
 		{
@@ -64,6 +57,7 @@ void Password::guess(int try_password, int num_matches)
 		}
 	}
 	
+	delete viable_words;
 	viable_words = temp_words;
 }
 
@@ -95,10 +89,12 @@ void Password::displayViableWords()
 	
 	cout << endl << "Viable Words" << endl << endl;
 	while (iter->hasNext())
-	{		
+	{	
+		cout << "\t";
 		iter->next()->displayString();
 		cout << endl;
 	}
+	cout << endl;
 }
 
 String* Password::getOriginalWord(int index)
